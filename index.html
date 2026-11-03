@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ទម្រង់ ប.ស.ស. ១.០២ និងលិខិតបញ្ជាក់ការងារ (A4 Standard)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Moul&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* នាំចូល Font ពី Google ក្នុងករណីកុំព្យូទ័រអត់មាន */
+        @import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Moul&display=swap');
+
         @page {
             size: A4 portrait;
             margin: 0;
@@ -18,7 +21,8 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Khmer OS', 'Khmer OS Battambang', 'Battambang', sans-serif;
+            /* កំណត់ Font ទៅជា Khmer OS Battambang ស្តង់ដារ និង Backup */
+            font-family: 'Khmer OS Battambang', 'Battambang', sans-serif;
             background-color: #cbd5e1;
             display: flex;
             height: 100vh;
@@ -41,7 +45,7 @@
             background-color: #1e3a8a;
             color: #ffffff;
             font-family: 'Khmer OS Muol Light', 'Moul', serif;
-            font-size: 17px;
+            font-size: 11pt;
             text-align: center;
         }
         .sidebar-actions {
@@ -56,8 +60,8 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Khmer OS', 'Battambang', sans-serif;
-            font-size: 15px;
+            font-family: 'Khmer OS Battambang', 'Battambang', sans-serif;
+            font-size: 10pt;
             font-weight: bold;
             transition: 0.2s;
             flex: 1;
@@ -100,19 +104,19 @@
         }
         .emp-info { display: flex; flex-direction: column; overflow: hidden; }
         .emp-name {
-            font-size: 13.5px;
+            font-size: 10pt;
             color: #1d4ed8;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .emp-date { font-size: 10.5px; color: #64748b; }
+        .emp-date { font-size: 8pt; color: #64748b; }
         .btn-delete {
             background: none;
             border: none;
             color: #ef4444;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 12pt;
             padding: 2px 6px;
             border-radius: 4px;
         }
@@ -141,8 +145,8 @@
             background-color: #f8fafc;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Khmer OS', 'Battambang', sans-serif;
-            font-size: 13px;
+            font-family: 'Khmer OS Battambang', 'Battambang', sans-serif;
+            font-size: 10pt;
         }
         .tab-btn.active {
             background-color: #1e3a8a;
@@ -159,34 +163,32 @@
             align-items: flex-start;
         }
 
-        /* ================= ទម្រង់ក្រដាស A4 ស្តង់ដារ ================= */
+        /* ================= ទម្រង់ក្រដាស A4 ស្តង់ដារ (ទំហំ 12pt) ================= */
         .a4-page {
             width: 210mm;
-            height: 297mm;
+            min-height: 297mm;
             background-color: #ffffff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             position: relative;
-            font-family: 'Khmer OS', 'Khmer OS Siemreap', 'Battambang', sans-serif;
+            /* ទំហំ 12 ដូចក្នុង MS Word */
+            font-size: 12pt; 
+            line-height: 1.8;
             color: #000;
             display: none;
-            overflow: hidden;
+            /* បានលុប overflow: hidden ចេញ ដើម្បីកុំឱ្យកាត់អក្សរចោល */
         }
         .a4-page.active {
             display: block;
         }
 
-        /* ទម្រង់ទី ១៖ Margin សម្រាប់សលាកប័ត្រ ១.០២ */
+        /* ទម្រង់ទី ១៖ សលាកប័ត្រ ១.០២ - ពង្រីក Margin ឱ្យទូលាយ (ឆ្វេង/ស្តាំ 10mm) */
         #form2 {
-            padding: 9mm 14mm 10mm 14mm;
-            font-size: 12px;
-            line-height: 1.62;
+            padding: 10mm 10mm 12mm 10mm;
         }
 
-        /* ទម្រង់ទី ២៖ Margin សម្រាប់លិខិតបញ្ជាក់ការងារ */
+        /* ទម្រង់ទី ២៖ លិខិតបញ្ជាក់ការងារ - ពង្រីក Margin ឱ្យទូលាយ (ឆ្វេង/ស្តាំ 12mm) */
         #form1 {
-            padding: 16mm 18mm 14mm 18mm;
-            font-size: 12.8px;
-            line-height: 1.88;
+            padding: 15mm 12mm 15mm 12mm;
         }
 
         .moul {
@@ -199,48 +201,50 @@
         }
         .text-center { text-align: center; }
 
-        /* ជួរអក្សរ Flex */
+        /* ជួរអក្សរ Flex ជាមួយនឹងការអនុញ្ញាតឱ្យទម្លាក់ជួរ (flex-wrap: wrap) */
         .line-row {
             display: flex;
             align-items: baseline;
             width: 100%;
-            white-space: nowrap;
+            flex-wrap: wrap; /* ទម្លាក់ជួរបើចុងបន្ទាត់អត់កន្លែង */
+            margin-bottom: 2px;
         }
 
-        /* ប្រអប់វាយអក្សរលើចុចៗ (ពណ៌ទឹកប៊ិច + Khmer OS) */
+        /* ប្រអប់វាយអក្សរលើចុចៗ (Khmer OS Battambang + ទំហំ 12pt) */
         .dot-input {
             border: none;
             border-bottom: 1px dotted #222;
-            font-family: 'Khmer OS', 'Battambang', sans-serif;
-            font-size: 13px;
-            color: #0026b3; /* ពណ៌ទឹកប៊ិច */
+            font-family: 'Khmer OS Battambang', 'Battambang', sans-serif;
+            font-size: 12pt; 
+            color: #0026b3; 
             background-color: rgba(235, 243, 255, 0.45);
             padding: 0 4px;
             margin: 0 2px;
             outline: none;
-            height: 20px;
-            line-height: 19px;
-            min-width: 20px;
+            height: 22px;
+            line-height: 20px;
+            min-width: 25px; /* ការពារកុំឱ្យរួមតូចពេក */
         }
         .dot-input:focus {
             background-color: #dbeafe;
             border-bottom: 1px solid #0026b3;
         }
 
-        /* ប្រអប់ការេសម្រាប់លេខអត្តសញ្ញាណ ប.ស.ស. */
+        /* ប្រអប់ការេសម្រាប់លេខអត្តសញ្ញាណ */
         .box-seq {
             display: inline-flex;
             align-items: center;
             vertical-align: middle;
+            flex-wrap: nowrap;
         }
         .sq-box {
-            width: 20px;
-            height: 21px;
+            width: 24px;
+            height: 26px;
             border: 1px solid #000;
             border-right: none;
             text-align: center;
-            font-family: 'Khmer OS', 'Battambang', sans-serif;
-            font-size: 13px;
+            font-family: 'Khmer OS Battambang', 'Battambang', sans-serif;
+            font-size: 12pt;
             color: #0026b3;
             background-color: rgba(235, 243, 255, 0.35);
             outline: none;
@@ -258,7 +262,7 @@
             font-weight: bold;
         }
 
-        /* ប្រអប់ Checkbox ធំក្នុងទម្រង់ ១.០២ (ជួរទី ៦) */
+        /* ប្រអប់ Checkbox ធំ */
         .check-option {
             display: inline-flex;
             align-items: center;
@@ -270,15 +274,15 @@
         }
         .check-rect {
             width: 32px;
-            height: 18px;
+            height: 20px;
             border: 1px solid #444;
             background-color: rgba(235, 243, 255, 0.45);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-right: 8px;
-            font-family: 'Khmer OS', sans-serif;
-            font-size: 14px;
+            font-family: 'Khmer OS Battambang', sans-serif;
+            font-size: 12pt;
             font-weight: bold;
             color: #0026b3;
         }
@@ -286,7 +290,7 @@
             content: "✓";
         }
 
-        /* សម្រាប់បោះពុម្ព (Print A4 ១០០%) */
+        /* សម្រាប់បោះពុម្ព (Print A4) */
         @media print {
             body {
                 background: none;
@@ -308,7 +312,7 @@
                 box-shadow: none;
                 margin: 0;
                 width: 210mm;
-                height: 297mm;
+                min-height: 297mm;
                 page-break-after: always;
             }
             .dot-input, .sq-box, .check-rect {
@@ -319,11 +323,8 @@
 </head>
 <body>
 
-    <!-- ផ្ទាំងខាងឆ្វេង៖ បញ្ជីឈ្មោះបុគ្គលិក -->
     <div class="sidebar">
-        <div class="sidebar-header">
-            បញ្ជីឈ្មោះបុគ្គលិក
-        </div>
+        <div class="sidebar-header">បញ្ជីឈ្មោះបុគ្គលិក</div>
         <div class="sidebar-actions">
             <button class="btn btn-new" onclick="createNewRecord()">+ បង្កើតថ្មី</button>
             <button class="btn btn-save" onclick="saveCurrentRecord()">💾 រក្សាទុក (Save)</button>
@@ -331,11 +332,10 @@
         <ul class="employee-list" id="employeeList"></ul>
     </div>
 
-    <!-- ផ្ទាំងខាងស្តាំ -->
     <div class="main-wrapper">
         <div class="top-bar">
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('form2', this)">១. សលាកប័ត្រព័ត៌មានសមាជិក ប.ស.ស. (ទម្រង់ ១.០២)</button>
+                <button class="tab-btn active" onclick="switchTab('form2', this)">១. សលាកប័ត្រព័ត៌មាន (១.០២)</button>
                 <button class="tab-btn" onclick="switchTab('form1', this)">២. លិខិតបញ្ជាក់ការងារ</button>
             </div>
             <button class="btn btn-print" onclick="window.print()">🖨️ បោះពុម្ព (Print A4)</button>
@@ -344,42 +344,37 @@
         <div class="document-container">
 
             <!-- =========================================================================
-                 ទម្រង់ទី ១៖ សលាកប័ត្រព័ត៌មានសមាជិក ប.ស.ស. (ទម្រង់ ១.០២) - តាមរូបភាពទី ១
+                 ទម្រង់ទី ១៖ សលាកប័ត្រព័ត៌មានសមាជិក ប.ស.ស. (ទម្រង់ ១.០២)
                  ========================================================================= -->
             <div id="form2" class="a4-page active">
                 
-                <!-- អត្ថបទប្រកាសខាងលើ និង ទម្រង់ ១.០២ -->
-                <div style="font-size: 10.5px; line-height: 1.5; position: relative;">
+                <div style="font-size: 10.5pt; line-height: 1.5; position: relative;">
                     <div>ឧបសម្ព័ន្ធ២. នៃប្រកាសលេខៈ១៦៨/២២ ក.ប/ប្រ.ក.ប.ស.ស. ចុះថ្ងៃទី៥ ខែកក្កដា ឆ្នាំ២០២២ ស្តីពីបែបបទ និងនីតិវិធីនៃការចុះបញ្ជីសហគ្រាស គ្រឹះស្ថាន កម្មករនិយោជិត និង</div>
                     <div style="display: flex; justify-content: space-between; align-items: baseline;">
                         <span>ការបង់ភាគទាន សម្រាប់បុគ្គលទាំងឡាយដែលស្ថិតនៅក្រោមបទប្បញ្ញត្តិនៃច្បាប់ស្តីពីការងារ ក្នុងបេឡាជាតិសន្តិសុខសង្គម</span>
-                        <span class="moul" style="font-size: 13px; padding-right: 10px;">ទម្រង់ ១.០២</span>
+                        <span class="moul" style="font-size: 11pt; padding-right: 10px;">ទម្រង់ ១.០២</span>
                     </div>
                 </div>
 
-                <!-- បាវចនា និងចំណងជើង -->
                 <div class="text-center" style="margin-top: 4px;">
-                    <div class="moul" style="font-size: 13.5px;">ព្រះរាជាណាចក្រកម្ពុជា</div>
-                    <div class="moul" style="font-size: 13px; margin-top: 2px;">ជាតិ សាសនា ព្រះមហាក្សត្រ</div>
-                    <div style="font-size: 11px; margin: 1px 0 6px 0; color: #333;">──•❈•──</div>
-                    <div class="moul underline" style="font-size: 13.5px; margin-bottom: 2px;">សលាកប័ត្រព័ត៌មានសមាជិក ប.ស.ស.</div>
+                    <div class="moul" style="font-size: 13pt;">ព្រះរាជាណាចក្រកម្ពុជា</div>
+                    <div class="moul" style="font-size: 12pt; margin-top: 2px;">ជាតិ សាសនា ព្រះមហាក្សត្រ</div>
+                    <div style="font-size: 11pt; margin: 1px 0 6px 0; color: #333;">──•❈•──</div>
+                    <div class="moul underline" style="font-size: 13pt; margin-bottom: 2px;">សលាកប័ត្រព័ត៌មានសមាជិក ប.ស.ស.</div>
                 </div>
 
-                <!-- លេខ៖ -->
                 <div class="line-row" style="margin-top: 2px;">
                     <span>លេខ៖</span>
-                    <input type="text" class="dot-input" style="width: 135px;" data-field="nssf_doc_no">
+                    <input type="text" class="dot-input" style="width: 150px;" data-field="nssf_doc_no">
                 </div>
 
-                <!-- ផ្នែក ក- ព័ត៌មានផ្ទាល់ខ្លួន និង លេខអត្តសញ្ញាណសមាជិក ប.ស.ស. (7 - 7 - 1) -->
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 2px; margin-bottom: 4px;">
-                    <div class="moul" style="font-size: 12.5px;">
+                    <div class="moul" style="font-size: 12pt;">
                         ក- <span class="underline">ព័ត៌មានផ្ទាល់ខ្លួន</span>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div style="font-size: 11px; font-weight: bold; margin-bottom: 3px;">លេខអត្តសញ្ញាណសមាជិក ប.ស.ស.</div>
+                        <div style="font-size: 11pt; font-weight: bold; margin-bottom: 3px;">លេខអត្តសញ្ញាណសមាជិក ប.ស.ស.</div>
                         <div class="box-seq">
-                            <!-- 7 ប្រអប់ដំបូង -->
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_1">
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_2">
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_3">
@@ -388,7 +383,6 @@
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_6">
                             <input type="text" maxlength="1" class="sq-box last-in-group" data-field="m_id_7">
                             <span class="sq-dash">-</span>
-                            <!-- 7 ប្រអប់កណ្តាល -->
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_8">
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_9">
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_10">
@@ -397,87 +391,82 @@
                             <input type="text" maxlength="1" class="sq-box" data-field="m_id_13">
                             <input type="text" maxlength="1" class="sq-box last-in-group" data-field="m_id_14">
                             <span class="sq-dash">-</span>
-                            <!-- 1 ប្រអប់ចុងក្រោយ -->
                             <input type="text" maxlength="1" class="sq-box last-in-group" data-field="m_id_15">
                         </div>
                     </div>
                 </div>
 
-                <!-- ១- គោត្តនាម នាម -->
                 <div class="line-row">
-                    <span style="width: 24px;">១-</span>
+                    <span style="width: 30px;">១-</span>
                     <span>គោត្តនាម</span>
-                    <input type="text" class="dot-input" style="width: 115px;" data-field="last_name" oninput="updateFullNameFromParts()">
+                    <input type="text" class="dot-input" style="width: 120px;" data-field="last_name" oninput="updateFullNameFromParts()">
                     <span>នាម</span>
-                    <input type="text" class="dot-input" style="width: 195px;" data-field="first_name" oninput="updateFullNameFromParts()">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="first_name" oninput="updateFullNameFromParts()">
                     <span>ជាអក្សរឡាតាំង</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="latin_name">
                 </div>
 
-                <div class="line-row" style="padding-left: 24px;">
+                <div class="line-row" style="padding-left: 30px;">
                     <span>ភេទ</span>
-                    <input type="text" class="dot-input text-center" style="width: 40px;" data-field="worker_gender" oninput="syncField('worker_gender', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 45px;" data-field="worker_gender" oninput="syncField('worker_gender', this.value)">
                     <span>សញ្ជាតិ</span>
-                    <input type="text" class="dot-input text-center" style="width: 90px;" data-field="worker_nationality" oninput="syncField('worker_nationality', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 80px;" data-field="worker_nationality" oninput="syncField('worker_nationality', this.value)">
                     <span>ថ្ងៃខែឆ្នាំកំណើត</span>
-                    <input type="text" class="dot-input text-center" style="width: 38px;" data-field="dob_d" oninput="syncField('dob_d', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 40px;" data-field="dob_d" oninput="syncField('dob_d', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 48px;" data-field="dob_m" oninput="syncField('dob_m', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 45px;" data-field="dob_m" oninput="syncField('dob_m', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 52px;" data-field="dob_y" oninput="syncField('dob_y', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 55px;" data-field="dob_y" oninput="syncField('dob_y', this.value)">
                     <span>អត្តសញ្ញាណប័ណ្ណលេខ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="worker_id_card" oninput="syncField('worker_id_card', this.value)">
                 </div>
 
-                <!-- ២- ទីកន្លែងកំណើត -->
                 <div class="line-row">
-                    <span style="width: 24px;">២-</span>
+                    <span style="width: 30px;">២-</span>
                     <span>ទីកន្លែងកំណើត ផ្ទះលេខ</span>
-                    <input type="text" class="dot-input" style="width: 75px;" data-field="pob_house" oninput="syncField('pob_house', this.value)">
+                    <input type="text" class="dot-input" style="width: 70px;" data-field="pob_house" oninput="syncField('pob_house', this.value)">
                     <span>ផ្លូវ</span>
-                    <input type="text" class="dot-input" style="width: 95px;" data-field="pob_street" oninput="syncField('pob_street', this.value)">
+                    <input type="text" class="dot-input" style="width: 80px;" data-field="pob_street" oninput="syncField('pob_street', this.value)">
                     <span>ភូមិ/ក្រុម</span>
-                    <input type="text" class="dot-input" style="width: 155px;" data-field="pob_village" oninput="syncField('pob_village', this.value)">
+                    <input type="text" class="dot-input" style="width: 140px;" data-field="pob_village" oninput="syncField('pob_village', this.value)">
                     <span>ឃុំ/សង្កាត់</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="pob_commune" oninput="syncField('pob_commune', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 24px;">
+                <div class="line-row" style="padding-left: 30px;">
                     <span>ស្រុក/ខណ្ឌ/ក្រុង</span>
-                    <input type="text" class="dot-input" style="width: 245px;" data-field="pob_district" oninput="syncField('pob_district', this.value)">
+                    <input type="text" class="dot-input" style="width: 200px;" data-field="pob_district" oninput="syncField('pob_district', this.value)">
                     <span>ខេត្ត/រាជធានី</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="pob_province" oninput="syncField('pob_province', this.value)">
                 </div>
 
-                <!-- ៣- អាសយដ្ឋានបច្ចុប្បន្ន -->
                 <div class="line-row">
-                    <span style="width: 24px;">៣-</span>
+                    <span style="width: 30px;">៣-</span>
                     <span>អាសយដ្ឋានបច្ចុប្បន្ន ផ្ទះលេខ</span>
-                    <input type="text" class="dot-input" style="width: 65px;" data-field="cur_house" oninput="syncField('cur_house', this.value)">
+                    <input type="text" class="dot-input" style="width: 60px;" data-field="cur_house" oninput="syncField('cur_house', this.value)">
                     <span>ផ្លូវ</span>
-                    <input type="text" class="dot-input" style="width: 90px;" data-field="cur_street" oninput="syncField('cur_street', this.value)">
+                    <input type="text" class="dot-input" style="width: 80px;" data-field="cur_street" oninput="syncField('cur_street', this.value)">
                     <span>ភូមិ/ក្រុម</span>
-                    <input type="text" class="dot-input" style="width: 135px;" data-field="cur_village" oninput="syncField('cur_village', this.value)">
+                    <input type="text" class="dot-input" style="width: 130px;" data-field="cur_village" oninput="syncField('cur_village', this.value)">
                     <span>ឃុំ/សង្កាត់</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="cur_commune" oninput="syncField('cur_commune', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 24px;">
+                <div class="line-row" style="padding-left: 30px;">
                     <span>ស្រុក/ខណ្ឌ/ក្រុង</span>
-                    <input type="text" class="dot-input" style="width: 155px;" data-field="cur_district" oninput="syncField('cur_district', this.value)">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="cur_district" oninput="syncField('cur_district', this.value)">
                     <span>ខេត្ត/រាជធានី</span>
-                    <input type="text" class="dot-input" style="width: 175px;" data-field="cur_province" oninput="syncField('cur_province', this.value)">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="cur_province" oninput="syncField('cur_province', this.value)">
                     <span>លេខទូរស័ព្ទៈ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="worker_phone" oninput="syncField('worker_phone', this.value)">
                 </div>
 
-                <!-- ខ- ព័ត៌មានការងារ -->
-                <div class="moul" style="font-size: 12.5px; margin-top: 5px; margin-bottom: 2px;">
+                <div class="moul" style="font-size: 12pt; margin-top: 5px; margin-bottom: 2px;">
                     ខ- <span class="underline">ព័ត៌មានការងារ</span>
                 </div>
 
                 <div class="line-row" style="align-items: center;">
-                    <span style="width: 24px;">៤-</span>
+                    <span style="width: 30px;">៤-</span>
                     <span>សហគ្រាស គ្រឹះស្ថាន</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="company_name" oninput="syncField('company_name', this.value)">
                     <span style="margin: 0 6px;">លេខអត្តសញ្ញាណស.ហ</span>
@@ -494,32 +483,31 @@
                 </div>
 
                 <div class="line-row" style="margin-top: 2px;">
-                    <span style="width: 24px;">៥-</span>
+                    <span style="width: 30px;">៥-</span>
                     <span>មុខងារ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="worker_role" oninput="syncField('worker_role', this.value)">
                     <span>ប្រាក់ឈ្នួល</span>
-                    <input type="text" class="dot-input" style="width: 120px;" data-field="worker_salary">
+                    <input type="text" class="dot-input" style="width: 100px;" data-field="worker_salary">
                     <span>កាលបរិច្ឆេទចូលធ្វើការ</span>
-                    <input type="text" class="dot-input text-center" style="width: 38px;" data-field="start_day" oninput="syncField('start_day', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 40px;" data-field="start_day" oninput="syncField('start_day', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 45px;" data-field="start_month" oninput="syncField('start_month', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 50px;" data-field="start_month" oninput="syncField('start_month', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 50px;" data-field="start_year" oninput="syncField('start_year', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 60px;" data-field="start_year" oninput="syncField('start_year', this.value)">
                 </div>
 
-                <!-- គ- ព័ត៌មានគ្រួសារ -->
-                <div class="moul" style="font-size: 12.5px; margin-top: 5px; margin-bottom: 3px;">
+                <div class="moul" style="font-size: 12pt; margin-top: 5px; margin-bottom: 3px;">
                     គ- <span class="underline">ព័ត៌មានគ្រួសារ</span>
                 </div>
 
                 <div class="line-row" style="align-items: center; margin-bottom: 3px;">
-                    <span style="width: 28px;">៦-</span>
-                    <label class="check-option" style="margin-right: 115px;">
+                    <span style="width: 30px;">៦-</span>
+                    <label class="check-option" style="margin-right: 90px;">
                         <input type="checkbox" data-field="status_single">
                         <span class="check-rect"></span>
                         <span>នៅលីវ</span>
                     </label>
-                    <label class="check-option" style="margin-right: 115px;">
+                    <label class="check-option" style="margin-right: 90px;">
                         <input type="checkbox" data-field="status_married">
                         <span class="check-rect"></span>
                         <span>រៀបអាពាហ៍ពិពាហ៍</span>
@@ -532,132 +520,125 @@
                 </div>
 
                 <div class="line-row">
-                    <span style="width: 24px;">៧-</span>
+                    <span style="width: 30px;">៧-</span>
                     <span>គោត្តនាម-នាម</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="spouse_name">
                     <span>សញ្ជាតិ</span>
-                    <input type="text" class="dot-input text-center" style="width: 110px;" data-field="spouse_nat">
+                    <input type="text" class="dot-input text-center" style="width: 90px;" data-field="spouse_nat">
                     <span>ថ្ងៃខែឆ្នាំកំណើត</span>
-                    <input type="text" class="dot-input text-center" style="width: 42px;" data-field="sp_d">
+                    <input type="text" class="dot-input text-center" style="width: 40px;" data-field="sp_d">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 48px;" data-field="sp_m">
+                    <input type="text" class="dot-input text-center" style="width: 50px;" data-field="sp_m">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 52px;" data-field="sp_y">
+                    <input type="text" class="dot-input text-center" style="width: 60px;" data-field="sp_y">
                 </div>
 
-                <div class="line-row" style="padding-left: 24px;">
+                <div class="line-row" style="padding-left: 30px;">
                     <span>មុខរបរសព្វថ្ងៃ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="spouse_job">
                 </div>
 
                 <div class="line-row">
-                    <span style="width: 24px;">៨-</span>
+                    <span style="width: 30px;">៨-</span>
                     <span>អំពីកូន</span>
-                    <input type="text" class="dot-input text-center" style="width: 55px;" data-field="children_count">
+                    <input type="text" class="dot-input text-center" style="width: 60px;" data-field="children_count">
                     <span>នាក់</span>
                 </div>
 
-                <!-- បញ្ជីកូនទាំង ៤ -->
-                <div style="padding-left: 24px;">
+                <div style="padding-left: 30px;">
                     <div class="line-row">
-                        <span style="width: 92px;">១. គោត្តនាម-នាម</span>
-                        <input type="text" class="dot-input" style="width: 185px;" data-field="c1_name">
+                        <span style="width: 100px;">១. គោត្តនាម-នាម</span>
+                        <input type="text" class="dot-input" style="width: 180px;" data-field="c1_name">
                         <span>ភេទ</span>
-                        <input type="text" class="dot-input text-center" style="width: 38px;" data-field="c1_sex">
+                        <input type="text" class="dot-input text-center" style="width: 45px;" data-field="c1_sex">
                         <span>កើតនៅថ្ងៃទី</span>
-                        <input type="text" class="dot-input text-center" style="width: 35px;" data-field="c1_d">
+                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="c1_d">
                         <span>ខែ</span>
-                        <input type="text" class="dot-input text-center" style="width: 42px;" data-field="c1_m">
+                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c1_m">
                         <span>ឆ្នាំ</span>
-                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c1_y">
+                        <input type="text" class="dot-input text-center" style="width: 60px;" data-field="c1_y">
                         <span>មុខរបរ</span>
                         <input type="text" class="dot-input" style="flex: 1;" data-field="c1_job">
                     </div>
                     <div class="line-row">
-                        <span style="width: 92px;">២. គោត្តនាម-នាម</span>
-                        <input type="text" class="dot-input" style="width: 185px;" data-field="c2_name">
+                        <span style="width: 100px;">២. គោត្តនាម-នាម</span>
+                        <input type="text" class="dot-input" style="width: 180px;" data-field="c2_name">
                         <span>ភេទ</span>
-                        <input type="text" class="dot-input text-center" style="width: 38px;" data-field="c2_sex">
+                        <input type="text" class="dot-input text-center" style="width: 45px;" data-field="c2_sex">
                         <span>កើតនៅថ្ងៃទី</span>
-                        <input type="text" class="dot-input text-center" style="width: 35px;" data-field="c2_d">
+                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="c2_d">
                         <span>ខែ</span>
-                        <input type="text" class="dot-input text-center" style="width: 42px;" data-field="c2_m">
+                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c2_m">
                         <span>ឆ្នាំ</span>
-                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c2_y">
+                        <input type="text" class="dot-input text-center" style="width: 60px;" data-field="c2_y">
                         <span>មុខរបរ</span>
                         <input type="text" class="dot-input" style="flex: 1;" data-field="c2_job">
                     </div>
                     <div class="line-row">
-                        <span style="width: 92px;">៣. គោត្តនាម-នាម</span>
-                        <input type="text" class="dot-input" style="width: 185px;" data-field="c3_name">
+                        <span style="width: 100px;">៣. គោត្តនាម-នាម</span>
+                        <input type="text" class="dot-input" style="width: 180px;" data-field="c3_name">
                         <span>ភេទ</span>
-                        <input type="text" class="dot-input text-center" style="width: 38px;" data-field="c3_sex">
+                        <input type="text" class="dot-input text-center" style="width: 45px;" data-field="c3_sex">
                         <span>កើតនៅថ្ងៃទី</span>
-                        <input type="text" class="dot-input text-center" style="width: 35px;" data-field="c3_d">
+                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="c3_d">
                         <span>ខែ</span>
-                        <input type="text" class="dot-input text-center" style="width: 42px;" data-field="c3_m">
+                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c3_m">
                         <span>ឆ្នាំ</span>
-                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c3_y">
+                        <input type="text" class="dot-input text-center" style="width: 60px;" data-field="c3_y">
                         <span>មុខរបរ</span>
                         <input type="text" class="dot-input" style="flex: 1;" data-field="c3_job">
                     </div>
                     <div class="line-row">
-                        <span style="width: 92px;">៤. គោត្តនាម-នាម</span>
-                        <input type="text" class="dot-input" style="width: 185px;" data-field="c4_name">
+                        <span style="width: 100px;">៤. គោត្តនាម-នាម</span>
+                        <input type="text" class="dot-input" style="width: 180px;" data-field="c4_name">
                         <span>ភេទ</span>
-                        <input type="text" class="dot-input text-center" style="width: 38px;" data-field="c4_sex">
+                        <input type="text" class="dot-input text-center" style="width: 45px;" data-field="c4_sex">
                         <span>កើតនៅថ្ងៃទី</span>
-                        <input type="text" class="dot-input text-center" style="width: 35px;" data-field="c4_d">
+                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="c4_d">
                         <span>ខែ</span>
-                        <input type="text" class="dot-input text-center" style="width: 42px;" data-field="c4_m">
+                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c4_m">
                         <span>ឆ្នាំ</span>
-                        <input type="text" class="dot-input text-center" style="width: 50px;" data-field="c4_y">
+                        <input type="text" class="dot-input text-center" style="width: 60px;" data-field="c4_y">
                         <span>មុខរបរ</span>
                         <input type="text" class="dot-input" style="flex: 1;" data-field="c4_job">
                     </div>
                 </div>
 
-                <!-- សេចក្តីធានា -->
-                <div style="text-align: center; margin-top: 14px; font-size: 12px;">
+                <div style="text-align: center; margin-top: 14px; font-size: 11.5pt;">
                     ខ្ញុំបាទ/នាងខ្ញុំ សូមធានាទទួលខុសត្រូវចំពោះមុខច្បាប់ថា ព័ត៌មានបំពេញខាងលើនេះពិតជាត្រឹមត្រូវប្រាកដមែន ។
                 </div>
 
-                <!-- ផ្នែកហត្ថលេខាទាំង ២ (តាមទីតាំងរូបភាពគំរូ) -->
                 <div style="position: relative; height: 115px; margin-top: 12px;">
-                    
-                    <!-- ខាងស្តាំ៖ ស្នាមមេដៃស្តាំសាមីខ្លួន (ខ្ពស់ជាងបន្តិច) -->
-                    <div style="position: absolute; right: 0; top: 0; width: 320px; text-align: center;">
+                    <div style="position: absolute; right: 0; top: 0; width: 330px; text-align: center;">
                         <div class="line-row" style="justify-content: center;">
                             <span>ធ្វើនៅ</span>
-                            <input type="text" class="dot-input text-center" style="width: 65px;" data-field="f2_loc1">
+                            <input type="text" class="dot-input text-center" style="width: 80px;" data-field="f2_loc1">
                             <span>ថ្ងៃទី</span>
-                            <input type="text" class="dot-input text-center" style="width: 38px;" data-field="f2_d1">
+                            <input type="text" class="dot-input text-center" style="width: 40px;" data-field="f2_d1">
                             <span>ខែ</span>
-                            <input type="text" class="dot-input text-center" style="width: 58px;" data-field="f2_m1">
+                            <input type="text" class="dot-input text-center" style="width: 60px;" data-field="f2_m1">
                             <span>ឆ្នាំ២០</span>
-                            <input type="text" class="dot-input text-center" style="width: 30px;" data-field="f2_y1">
+                            <input type="text" class="dot-input text-center" style="width: 35px;" data-field="f2_y1">
                         </div>
                         <div style="font-weight: bold; margin-top: 4px;">ស្នាមមេដៃស្តាំសាមីខ្លួន</div>
                     </div>
 
-                    <!-- កណ្តាលឆ្វេង៖ ហត្ថលេខា និងឈ្មោះមន្ត្រីពិនិត្យ -->
-                    <div style="position: absolute; left: 155px; top: 24px; width: 320px; text-align: center;">
+                    <div style="position: absolute; left: 160px; top: 24px; width: 330px; text-align: center;">
                         <div class="line-row" style="justify-content: center;">
                             <span>ធ្វើនៅ</span>
-                            <input type="text" class="dot-input text-center" style="width: 65px;" data-field="f2_loc2">
+                            <input type="text" class="dot-input text-center" style="width: 80px;" data-field="f2_loc2">
                             <span>ថ្ងៃទី</span>
-                            <input type="text" class="dot-input text-center" style="width: 38px;" data-field="f2_d2">
+                            <input type="text" class="dot-input text-center" style="width: 40px;" data-field="f2_d2">
                             <span>ខែ</span>
-                            <input type="text" class="dot-input text-center" style="width: 58px;" data-field="f2_m2">
+                            <input type="text" class="dot-input text-center" style="width: 60px;" data-field="f2_m2">
                             <span>ឆ្នាំ២០</span>
-                            <input type="text" class="dot-input text-center" style="width: 30px;" data-field="f2_y2">
+                            <input type="text" class="dot-input text-center" style="width: 35px;" data-field="f2_y2">
                         </div>
                         <div style="font-weight: bold; margin-top: 4px;">ហត្ថលេខា និងឈ្មោះមន្ត្រីពិនិត្យ</div>
                     </div>
                 </div>
 
-                <!-- ប្រអប់ឯកសារថតចម្លងភ្ជាប់ជាមួយ (នៅជ្រុងក្រោមឆ្វេង) -->
-                <div style="position: absolute; bottom: 12mm; left: 14mm; border: 1px solid #333; padding: 6px 10px; font-size: 9.8px; line-height: 1.45; width: 175px;">
+                <div style="position: absolute; bottom: 10mm; left: 10mm; border: 1px solid #333; padding: 6px 10px; font-size: 10pt; line-height: 1.45; width: 190px;">
                     <div class="underline" style="font-weight: bold; margin-bottom: 2px;">ឯកសារថតចម្លងភ្ជាប់ជាមួយៈ</div>
                     <div>- អត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ</div>
                     <div>- លិខិតឆ្លងដែន</div>
@@ -668,22 +649,20 @@
             </div>
 
             <!-- =========================================================================
-                 ទម្រង់ទី ២៖ លិខិតបញ្ជាក់ការងារ - តាមរូបភាពទី ២
+                 ទម្រង់ទី ២៖ លិខិតបញ្ជាក់ការងារ 
                  ========================================================================= -->
             <div id="form1" class="a4-page">
                 
-                <!-- ក្បាលលិខិត -->
                 <div class="text-center">
-                    <div class="moul" style="font-size: 15px;">ព្រះរាជាណាចក្រកម្ពុជា</div>
-                    <div class="moul" style="font-size: 14px; margin-top: 2px;">ជាតិ សាសនា ព្រះមហាក្សត្រ</div>
-                    <div style="font-size: 12px; margin: 4px 0 18px 0; color: #333;">──•❈•──</div>
-                    <div class="moul underline" style="font-size: 15px; margin-bottom: 22px;">លិខិតបញ្ជាក់ការងារ</div>
+                    <div class="moul" style="font-size: 14pt;">ព្រះរាជាណាចក្រកម្ពុជា</div>
+                    <div class="moul" style="font-size: 13pt; margin-top: 2px;">ជាតិ សាសនា ព្រះមហាក្សត្រ</div>
+                    <div style="font-size: 11pt; margin: 4px 0 18px 0; color: #333;">──•❈•──</div>
+                    <div class="moul underline" style="font-size: 14pt; margin-bottom: 22px;">លិខិតបញ្ជាក់ការងារ</div>
                 </div>
 
-                <!-- កថាខណ្ឌនិយោជក -->
                 <div class="line-row" style="padding-left: 55px;">
                     <span>ខ្ញុំបាទ/នាងខ្ញុំឈ្មោះ</span>
-                    <input type="text" class="dot-input" style="width: 245px;" data-field="emp_cert_boss_name">
+                    <input type="text" class="dot-input" style="width: 230px;" data-field="emp_cert_boss_name">
                     <span>មានតួនាទីជា</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="emp_cert_boss_role">
                 </div>
@@ -693,9 +672,8 @@
                     <input type="text" class="dot-input" style="flex: 1;" data-field="company_name" oninput="syncField('company_name', this.value)">
                 </div>
 
-                <!-- លេខអត្តសញ្ញាណសហគ្រាសក្នុង ប.ស.ស. (7 ប្រអប់ - 1 ប្រអប់) -->
-                <div class="line-row" style="align-items: center; margin: 2px 0;">
-                    <span>លេខអត្តសញ្ញាណសហគ្រាសក្នុង <b style="font-family: 'Khmer OS Muol Light', 'Moul'; font-size: 12px;">ប.ស.ស.</b> ៖</span>
+                <div class="line-row" style="align-items: center; margin: 4px 0;">
+                    <span>លេខអត្តសញ្ញាណសហគ្រាសក្នុង <b style="font-family: 'Khmer OS Muol Light', 'Moul'; font-size: 11pt;">ប.ស.ស.</b> ៖</span>
                     <div class="box-seq" style="margin: 0 10px;">
                         <input type="text" maxlength="1" class="sq-box" data-field="comp_id_1" oninput="syncField('comp_id_1', this.value)">
                         <input type="text" maxlength="1" class="sq-box" data-field="comp_id_2" oninput="syncField('comp_id_2', this.value)">
@@ -712,139 +690,133 @@
 
                 <div class="line-row">
                     <span>ផ្ទះលេខ</span>
-                    <input type="text" class="dot-input" style="width: 115px;" data-field="comp_house">
+                    <input type="text" class="dot-input" style="width: 120px;" data-field="comp_house">
                     <span>ផ្លូវលេខ</span>
-                    <input type="text" class="dot-input" style="width: 125px;" data-field="comp_street">
+                    <input type="text" class="dot-input" style="width: 130px;" data-field="comp_street">
                     <span>ភូមិ</span>
-                    <input type="text" class="dot-input" style="width: 135px;" data-field="comp_village">
+                    <input type="text" class="dot-input" style="width: 150px;" data-field="comp_village">
                     <span>ឃុំ/សង្កាត់</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="comp_commune">
                 </div>
 
                 <div class="line-row">
                     <span>ក្រុង/ស្រុក/ខណ្ឌ</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="comp_district">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="comp_district">
                     <span>ខេត្ត/រាជធានី</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="comp_province">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="comp_province">
                     <span>លេខទូរសារ (Fax)</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="comp_fax">
                 </div>
 
                 <div class="line-row">
                     <span>លេខទូរស័ព្ទលើតុ (Desk Telephone)</span>
-                    <input type="text" class="dot-input" style="width: 150px;" data-field="comp_desk_phone">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="comp_desk_phone">
                     <span>លេខទូរស័ព្ទដៃ (Hand Phone)</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="comp_hand_phone">
                 </div>
 
                 <div class="line-row">
                     <span>សារអេឡិចត្រូនិក (E-mail)</span>
-                    <input type="text" class="dot-input" style="width: 280px;" data-field="comp_email">
+                    <input type="text" class="dot-input" style="width: 250px;" data-field="comp_email">
                     <span>។</span>
                 </div>
 
-                <!-- សូមបញ្ជាក់ថា -->
-                <div class="text-center moul underline" style="font-size: 14px; margin: 18px 0 14px 0;">
+                <div class="text-center moul underline" style="font-size: 13pt; margin: 18px 0 14px 0;">
                     សូមបញ្ជាក់ថា
                 </div>
 
-                <!-- ចំណុចត្រេទី ១ -->
-                <div class="line-row" style="padding-left: 32px;">
-                    <span style="width: 22px;">-</span>
+                <div class="line-row" style="padding-left: 20px;">
+                    <span style="width: 20px;">-</span>
                     <span>ឈ្មោះ</span>
-                    <input type="text" class="dot-input" style="width: 220px;" data-field="worker_full_name" placeholder="ឈ្មោះបុគ្គលិក..." oninput="syncFullName(this.value)">
+                    <input type="text" class="dot-input" style="width: 180px;" data-field="worker_full_name" placeholder="ឈ្មោះបុគ្គលិក..." oninput="syncFullName(this.value)">
                     <span>ភេទ</span>
-                    <input type="text" class="dot-input text-center" style="width: 35px;" data-field="worker_gender" oninput="syncField('worker_gender', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 45px;" data-field="worker_gender" oninput="syncField('worker_gender', this.value)">
                     <span>សញ្ជាតិ</span>
-                    <input type="text" class="dot-input text-center" style="width: 48px;" data-field="worker_nationality" oninput="syncField('worker_nationality', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 55px;" data-field="worker_nationality" oninput="syncField('worker_nationality', this.value)">
                     <span>ថ្ងៃខែឆ្នាំកំណើត</span>
-                    <input type="text" class="dot-input text-center" style="width: 32px;" data-field="dob_d" oninput="syncField('dob_d', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 40px;" data-field="dob_d" oninput="syncField('dob_d', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 35px;" data-field="dob_m" oninput="syncField('dob_m', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 50px;" data-field="dob_m" oninput="syncField('dob_m', this.value)">
                     <span>/</span>
-                    <input type="text" class="dot-input text-center" style="width: 42px;" data-field="dob_y" oninput="syncField('dob_y', this.value)">
+                    <input type="text" class="dot-input text-center" style="flex: 1;" data-field="dob_y" oninput="syncField('dob_y', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 54px;">
+                <div class="line-row" style="padding-left: 40px;">
                     <span>កាន់អត្តសញ្ញាណប័ណ្ណលេខ</span>
-                    <input type="text" class="dot-input" style="width: 165px;" data-field="worker_id_card" oninput="syncField('worker_id_card', this.value)">
+                    <input type="text" class="dot-input" style="width: 200px;" data-field="worker_id_card" oninput="syncField('worker_id_card', this.value)">
                     <span>លេខទូរស័ព្ទដៃ (Hand Phone)</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="worker_phone" oninput="syncField('worker_phone', this.value)">
                 </div>
 
-                <!-- ចំណុចត្រេទី ២ -->
-                <div class="line-row" style="padding-left: 32px;">
-                    <span style="width: 22px;">-</span>
+                <div class="line-row" style="padding-left: 20px;">
+                    <span style="width: 20px;">-</span>
                     <span>ទីកន្លែងកំណើតៈ អគារ/ផ្ទះលេខ</span>
-                    <input type="text" class="dot-input" style="width: 115px;" data-field="pob_house" oninput="syncField('pob_house', this.value)">
+                    <input type="text" class="dot-input" style="width: 110px;" data-field="pob_house" oninput="syncField('pob_house', this.value)">
                     <span>ផ្លូវលេខ</span>
                     <input type="text" class="dot-input" style="width: 120px;" data-field="pob_street" oninput="syncField('pob_street', this.value)">
                     <span>ភូមិ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="pob_village" oninput="syncField('pob_village', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 54px;">
+                <div class="line-row" style="padding-left: 40px;">
                     <span>ឃុំ/សង្កាត់</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="pob_commune" oninput="syncField('pob_commune', this.value)">
+                    <input type="text" class="dot-input" style="width: 160px;" data-field="pob_commune" oninput="syncField('pob_commune', this.value)">
                     <span>ក្រុង/ស្រុក/ខណ្ឌ</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="pob_district" oninput="syncField('pob_district', this.value)">
+                    <input type="text" class="dot-input" style="width: 160px;" data-field="pob_district" oninput="syncField('pob_district', this.value)">
                     <span>ខេត្ត/រាជធានី</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="pob_province" oninput="syncField('pob_province', this.value)">
                 </div>
 
-                <!-- ចំណុចត្រេទី ៣ -->
-                <div class="line-row" style="padding-left: 32px;">
-                    <span style="width: 22px;">-</span>
+                <div class="line-row" style="padding-left: 20px;">
+                    <span style="width: 20px;">-</span>
                     <span>ទីលំនៅបច្ចុប្បន្នៈ អគារ/ផ្ទះលេខ</span>
-                    <input type="text" class="dot-input" style="width: 115px;" data-field="cur_house" oninput="syncField('cur_house', this.value)">
+                    <input type="text" class="dot-input" style="width: 110px;" data-field="cur_house" oninput="syncField('cur_house', this.value)">
                     <span>ផ្លូវលេខ</span>
                     <input type="text" class="dot-input" style="width: 120px;" data-field="cur_street" oninput="syncField('cur_street', this.value)">
                     <span>ភូមិ</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="cur_village" oninput="syncField('cur_village', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 54px;">
+                <div class="line-row" style="padding-left: 40px;">
                     <span>ឃុំ/សង្កាត់</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="cur_commune" oninput="syncField('cur_commune', this.value)">
+                    <input type="text" class="dot-input" style="width: 160px;" data-field="cur_commune" oninput="syncField('cur_commune', this.value)">
                     <span>ក្រុង/ស្រុក/ខណ្ឌ</span>
-                    <input type="text" class="dot-input" style="width: 140px;" data-field="cur_district" oninput="syncField('cur_district', this.value)">
+                    <input type="text" class="dot-input" style="width: 160px;" data-field="cur_district" oninput="syncField('cur_district', this.value)">
                     <span>ខេត្ត/រាជធានី</span>
                     <input type="text" class="dot-input" style="flex: 1;" data-field="cur_province" oninput="syncField('cur_province', this.value)">
                 </div>
 
-                <!-- ចំណុចត្រេទី ៤ -->
-                <div class="line-row" style="padding-left: 32px;">
-                    <span style="width: 22px;">-</span>
+                <div class="line-row" style="padding-left: 20px;">
+                    <span style="width: 20px;">-</span>
                     <span>ពិតជាបានបម្រើការងារនៅសហគ្រាស គ្រឹះស្ថានរបស់ខ្ញុំបាទ/នាងខ្ញុំ តាំងពីថ្ងៃទី</span>
-                    <input type="text" class="dot-input text-center" style="width: 42px;" data-field="start_day" oninput="syncField('start_day', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 45px;" data-field="start_day" oninput="syncField('start_day', this.value)">
                     <span>ខែ</span>
-                    <input type="text" class="dot-input text-center" style="width: 55px;" data-field="start_month" oninput="syncField('start_month', this.value)">
+                    <input type="text" class="dot-input text-center" style="width: 60px;" data-field="start_month" oninput="syncField('start_month', this.value)">
                     <span>ឆ្នាំ</span>
                     <input type="text" class="dot-input text-center" style="flex: 1;" data-field="start_year" oninput="syncField('start_year', this.value)">
                 </div>
 
-                <div class="line-row" style="padding-left: 54px;">
+                <div class="line-row" style="padding-left: 40px;">
                     <span>រហូតដល់បច្ចុប្បន្ន នៅផ្នែក</span>
-                    <input type="text" class="dot-input" style="width: 330px;" data-field="worker_role" oninput="syncField('worker_role', this.value)">
+                    <input type="text" class="dot-input" style="width: 350px;" data-field="worker_role" oninput="syncField('worker_role', this.value)">
                     <span>ពិតប្រាកដមែន។</span>
                 </div>
 
-                <div style="padding-left: 54px; margin-top: 14px;">
+                <div style="padding-left: 40px; margin-top: 14px;">
                     ខ្ញុំបាទ/នាងខ្ញុំចេញលិខិតបញ្ជាក់នេះឱ្យសាមីខ្លួនយកទៅប្រើប្រាស់តាមការងារណាដែលអាចប្រើបាន។
                 </div>
 
-                <!-- កាលបរិច្ឆេទ និងហត្ថលេខានិយោជក -->
-                <div style="margin-top: 24px; float: right; width: 340px; text-align: center;">
+                <div style="margin-top: 24px; float: right; width: 360px; text-align: center;">
                     <div class="line-row" style="justify-content: center;">
-                        <input type="text" class="dot-input text-center" style="width: 95px;" data-field="cert_sign_loc">
+                        <input type="text" class="dot-input text-center" style="width: 100px;" data-field="cert_sign_loc">
                         <span>ថ្ងៃទី</span>
-                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="cert_sign_day">
+                        <input type="text" class="dot-input text-center" style="width: 45px;" data-field="cert_sign_day">
                         <span>ខែ</span>
                         <input type="text" class="dot-input text-center" style="width: 65px;" data-field="cert_sign_month">
                         <span>ឆ្នាំ២០</span>
-                        <input type="text" class="dot-input text-center" style="width: 35px;" data-field="cert_sign_year">
+                        <input type="text" class="dot-input text-center" style="width: 40px;" data-field="cert_sign_year">
                     </div>
-                    <div class="moul" style="margin-top: 8px; font-size: 13.5px;">
+                    <div class="moul" style="margin-top: 8px; font-size: 13pt;">
                         ហត្ថលេខា និងត្រានិយោជក
                     </div>
                 </div>
@@ -868,7 +840,6 @@
             setupBoxAutoAdvance();
         };
 
-        // ប្តូរផ្ទាំងទម្រង់
         function switchTab(formId, btnElement) {
             document.querySelectorAll('.a4-page').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -876,7 +847,6 @@
             btnElement.classList.add('active');
         }
 
-        // ធ្វើឱ្យប្រអប់ការេលោតទៅមុខស្វ័យប្រវត្តិពេលវាយលេខ
         function setupBoxAutoAdvance() {
             const sqBoxes = document.querySelectorAll('.sq-box');
             sqBoxes.forEach((box, idx) => {
@@ -902,7 +872,6 @@
             });
         }
 
-        // Sync ទិន្នន័យរវាងទម្រង់ទាំង ២
         function syncField(fieldName, value) {
             document.querySelectorAll(`[data-field="${fieldName}"]`).forEach(el => {
                 if (el.value !== value) {
@@ -1005,7 +974,7 @@
             listEl.innerHTML = '';
 
             if (employees.length === 0) {
-                listEl.innerHTML = '<li style="text-align:center; color:#888; padding: 20px; font-size: 12.5px;">មិនទាន់មានទិន្នន័យបុគ្គលិកនៅឡើយទេ</li>';
+                listEl.innerHTML = '<li style="text-align:center; color:#888; padding: 20px; font-size: 11pt;">មិនទាន់មានទិន្នន័យបុគ្គលិកនៅឡើយទេ</li>';
                 return;
             }
 
